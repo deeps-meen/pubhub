@@ -1,0 +1,109 @@
+_alpha_spineAcquire.pkm
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cx10
+  rotate: true
+  xy: 111, 137
+  size: 110, 107
+  orig: 136, 137
+  offset: 14, 15
+  index: -1
+cx11
+  rotate: false
+  xy: 218, 137
+  size: 106, 107
+  orig: 136, 137
+  offset: 16, 15
+  index: -1
+cx01
+  rotate: true
+  xy: 733, 127
+  size: 120, 121
+  orig: 136, 137
+  offset: 8, 8
+  index: -1
+cx12
+  rotate: false
+  xy: 324, 137
+  size: 100, 107
+  orig: 136, 137
+  offset: 18, 15
+  index: -1
+cx02
+  rotate: false
+  xy: 544, 0
+  size: 130, 131
+  orig: 136, 137
+  offset: 3, 3
+  index: -1
+cx13
+  rotate: false
+  xy: 520, 137
+  size: 96, 105
+  orig: 136, 137
+  offset: 20, 16
+  index: -1
+cx03
+  rotate: false
+  xy: 408, 0
+  size: 136, 137
+  orig: 136, 137
+  offset: 0, 0
+  index: -1
+cx14
+  rotate: false
+  xy: 424, 137
+  size: 96, 105
+  orig: 136, 137
+  offset: 20, 16
+  index: -1
+cx04
+  rotate: false
+  xy: 272, 0
+  size: 136, 137
+  orig: 136, 137
+  offset: 0, 0
+  index: -1
+cx15
+  rotate: false
+  xy: 800, 0
+  size: 94, 101
+  orig: 136, 137
+  offset: 21, 18
+  index: -1
+cx05
+  rotate: false
+  xy: 136, 0
+  size: 136, 137
+  orig: 136, 137
+  offset: 0, 0
+  index: -1
+cx06
+  rotate: false
+  xy: 0, 0
+  size: 136, 137
+  orig: 136, 137
+  offset: 0, 0
+  index: -1
+cx07
+  rotate: false
+  xy: 674, 0
+  size: 126, 127
+  orig: 136, 137
+  offset: 5, 6
+  index: -1
+cx08
+  rotate: true
+  xy: 616, 131
+  size: 116, 117
+  orig: 136, 137
+  offset: 10, 10
+  index: -1
+cx09
+  rotate: true
+  xy: 0, 137
+  size: 110, 111
+  orig: 136, 137
+  offset: 14, 13
+  index: -1

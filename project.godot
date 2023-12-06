@@ -1,0 +1,71 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "File_Utils",
+"language": "GDScript",
+"path": "res://utils.gd"
+} ]
+_global_script_class_icons={
+"File_Utils": ""
+}
+
+[application]
+
+config/name="build_test"
+run/main_scene="res://run.tscn"
+boot_splash/show_image=false
+boot_splash/image="res://pubhub.png"
+config/icon="res://icon.png"
+
+[audio]
+
+enable_audio_input=true
+
+[autoload]
+
+IO="*res://io.gd"
+
+[display]
+
+window/size/width=1080
+window/size/height=1920
+window/size/test_width=540
+window/size/test_height=960
+window/dpi/allow_hidpi=true
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[editor]
+
+main_run_args="-v"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
+3d/active_soft_world=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=0
+vram_compression/import_etc=true
+quality/reflections/texture_array_reflections=false
+portals/debug/logging=false
+environment/default_clear_color=Color( 0.172549, 0.164706, 0.196078, 1 )
+quality/filters/use_fxaa=true
+quality/depth/hdr.mobile=true

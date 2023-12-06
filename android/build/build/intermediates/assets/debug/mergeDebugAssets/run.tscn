@@ -1,0 +1,198 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://build_test.gd" type="Script" id=1]
+[ext_resource path="res://roboto.res" type="DynamicFont" id=2]
+[ext_resource path="res://roboto.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://attach-filex64.png" type="Texture" id=4]
+[ext_resource path="res://styles/buttPressed.stylebox" type="StyleBox" id=5]
+[ext_resource path="res://styles/buttNormal.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://styles/flat.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://explorer.theme" type="Theme" id=8]
+[ext_resource path="res://input.gd" type="Script" id=9]
+[ext_resource path="res://pics/mic.png" type="Texture" id=10]
+[ext_resource path="res://pics/voicexsmall.png" type="Texture" id=11]
+[ext_resource path="res://pics/voicex.png" type="Texture" id=12]
+[ext_resource path="res://pics/sound-onx.png" type="Texture" id=13]
+[ext_resource path="res://pics/sound-onxx.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=4]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 84, 169 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 12 )
+region_rect = Rect2( 0, 0, 84, 169 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[sub_resource type="AudioStreamMicrophone" id=5]
+
+[sub_resource type="AudioStreamSample" id=9]
+
+[node name="Node" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+PORT_SUB = "6125"
+PORT_PUB = "45871"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+pause_mode = 2
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+margin_right = 1036.0
+margin_bottom = 873.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+smooth_scrolling = true
+
+[node name="inbox" type="RichTextLabel" parent="VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 1036.0
+margin_bottom = 1670.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/bold_font = SubResource( 4 )
+custom_fonts/normal_font = ExtResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 3 )
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 1674.0
+margin_right = 1036.0
+margin_bottom = 1843.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_right = 783.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 100.0
+custom_fonts/font = ExtResource( 2 )
+context_menu_enabled = false
+placeholder_text = "Say hello..(max 180)"
+script = ExtResource( 9 )
+
+[node name="attachment" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 787.0
+margin_right = 865.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 869.0
+margin_right = 947.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+
+[node name="record" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+margin_left = 951.0
+margin_right = 1035.0
+margin_bottom = 169.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+toggle_mode = true
+icon = ExtResource( 10 )
+icon_align = 1
+
+[node name="img" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+expand = true
+
+[node name="selector" type="FileDialog" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+window_title = "Open a File"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.jpg", "*.jpeg", "*.JPG", "*.JPEG", "*png", "*PNG" )
+show_hidden_files = true
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource( 5 )
+autoplay = true
+bus = "Record"
+
+[node name="AudioReciever" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource( 9 )
+
+[node name="voiceplay" type="TextureButton" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.9
+anchor_top = 0.305
+anchor_right = 0.9
+anchor_bottom = 0.305
+margin_left = -128.0
+margin_top = -64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 128, 128 )
+toggle_mode = true
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+
+[connection signal="text_changed" from="VBoxContainer/TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="visibility_changed" from="VBoxContainer/inbox" to="." method="_on_inbox_visibility_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/LineEdit" to="VBoxContainer/HBoxContainer/LineEdit" method="_on_LineEdit_text_changed"]
+[connection signal="text_entered" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered" flags=3]
+[connection signal="text_entered" from="VBoxContainer/HBoxContainer/LineEdit" to="VBoxContainer/HBoxContainer/LineEdit" method="_on_LineEdit_text_entered"]
+[connection signal="text_updated" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_text_updated" flags=3]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/attachment" to="." method="_on_attachment_button_up" flags=3]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_button_down" flags=3]
+[connection signal="file_selected" from="selector" to="." method="_on_selector_file_selected"]
+[connection signal="toggled" from="voiceplay" to="." method="_on_voiceplay_toggled" flags=3]
